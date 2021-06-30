@@ -7,11 +7,11 @@ import random
 import tensorflow as tf
 
 
-flags.DEFINE_string('hr_dataset_path', './data/DIV2K/DIV2K800_sub',
+flags.DEFINE_string('hr_dataset_path', r'C:\DeepLearning\COMPX594\Data\ersgan\DIV2K800_sub',
                     'path to high resolution dataset')
-flags.DEFINE_string('lr_dataset_path', './data/DIV2K/DIV2K800_sub_bicLRx4',
+flags.DEFINE_string('lr_dataset_path', r'C:\DeepLearning\COMPX594\Data\ersgan\DIV2K800_sub_bicLRx4',
                     'path to low resolution dataset')
-flags.DEFINE_string('output_path', './data/DIV2K800_sub_bin.tfrecord',
+flags.DEFINE_string('output_path', r'C:\DeepLearning\COMPX594\Data\ersgan\DIV2K800_sub_bin.tfrecord',
                     'path to ouput tfrecord')
 flags.DEFINE_boolean('is_binary', True, 'whether save images as binary files'
                      ' or load them on the fly.')

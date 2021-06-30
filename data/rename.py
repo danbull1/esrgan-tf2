@@ -6,7 +6,7 @@ import glob
 
 
 def main():
-    folder = './data/DIV2K/DIV2K_train_LR_bicubic/X4'
+    folder = r'C:\DeepLearning\COMPX594\Data\ersgan\DIV2K_train_LR_bicubic\X4'
     DIV2K(folder)
     print('Finished.')
 

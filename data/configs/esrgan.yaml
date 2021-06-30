@@ -1,0 +1,51 @@
+# general setting
+batch_size: 2
+input_size: 32
+gt_size: 128
+ch_size: 3
+scale: 1
+sub_name: 'ersgan_output_var'
+pretrain_name: 'psnr_output_var'
+
+# generator setting
+network_G:
+    nf: 64
+    nb: 23
+# discriminator setting
+network_D:
+    nf: 64
+
+# dataset setting
+train_dataset:
+    path: '/Scratch/db129/output.tfrecord'
+    num_samples: 1000
+    using_bin: True
+    using_flip: True
+    using_rot: True
+test_dataset:
+    downhrim0016: '/Scratch/db129/ERSGAN_samples/downhrim0016.png'
+    downhrim0017: '/Scratch/db129/ERSGAN_samples/downhrim0017.png'
+
+# training setting
+niter: 2200000
+
+lr_G: !!float 1e-4
+lr_D: !!float 1e-4
+lr_steps: [800000, 1000000, 1200000, 1400000]
+lr_rate: 0.5
+
+adam_beta1_G: 0.9
+adam_beta2_G: 0.99
+adam_beta1_D: 0.9
+adam_beta2_D: 0.99
+
+w_pixel: !!float 1e-2
+pixel_criterion: l1
+
+w_feature: 1.0
+feature_criterion: l1
+
+w_gan: !!float 5e-3
+gan_type: ragan  # gan | ragan
+
+save_steps: 5000

@@ -10,7 +10,7 @@ from modules.utils import (load_yaml, load_dataset, ProgressBar,
                            set_memory_growth)
 
 
-flags.DEFINE_string('cfg_path', './configs/psnr.yaml', 'config file path')
+flags.DEFINE_string('cfg_path', r'/home/db129/SuperResolution/ESRSGAN2/data/configs/psnr.yaml', 'config file path')
 flags.DEFINE_string('gpu', '0', 'which gpu to use')
 
 
@@ -20,6 +20,7 @@ def main(_):
     os.environ['CUDA_VISIBLE_DEVICES'] = FLAGS.gpu
 
     logger = tf.get_logger()
+    
     logger.disabled = True
     logger.setLevel(logging.FATAL)
     set_memory_growth()
@@ -29,6 +30,7 @@ def main(_):
     # define network
     model = RRDB_Model(cfg['input_size'], cfg['ch_size'], cfg['network_G'])
     model.summary(line_length=80)
+    #print (x)
 
     # load dataset
     train_dataset = load_dataset(cfg, 'train_dataset', shuffle=True)
